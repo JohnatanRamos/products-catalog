@@ -5,13 +5,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 const modules = [
   MatPaginatorModule,
   MatInputModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatDialogModule
+  MatDialogModule,
+  MatIconModule,
+  MatChipsModule,
+  MatListModule
 ];
 
 @NgModule({

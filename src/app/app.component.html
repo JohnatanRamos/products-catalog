@@ -1,6 +1,10 @@
 <app-input-filter></app-input-filter>
 <div class="flex gap-3 justify-center">
-    <app-price-filter></app-price-filter>
+
+    <div class="flex flex-col gap-3 items-center">
+        <button mat-raised-button (click)="openModal(productForm)" > Crear producto </button>
+        <app-price-filter></app-price-filter>
+    </div>
 
     <router-outlet></router-outlet>
 
