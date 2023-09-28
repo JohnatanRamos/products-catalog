@@ -2,7 +2,7 @@
 
     <div class="grid grid-cols-3 gap-3">
         <ng-container *ngFor="let item of products">
-            <div class="max-w-xs rounded-md overflow-hidden shadow-xl">
+            <div class="max-w-xs rounded-md overflow-hidden shadow-xl" (click)="openModal(productForm, item)">
                 <img src="https://imgs.search.brave.com/A-wLJyX2uG3SRtR2CTSQLzrVbq7AjV3BLFsRpY7i4-s/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlZWpwZy5j/b20uYXIvNDAwLzEy/MDkvM2QtcHJpbnQt/c2t1bGwtRjEwMDAz/MTc2OS5qcGc"
                     alt="Nombre del Producto" class="w-full">
                 <div class="px-6 py-4">

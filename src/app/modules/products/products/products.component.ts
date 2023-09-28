@@ -7,6 +7,7 @@ import { PaginatorComponent } from 'src/app/shared/components/paginator/paginato
 import { BaseClass } from 'src/app/core/base.class';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
 import { IFilters } from 'src/app/shared/interfaces/IFilters.interface';
+import { ManageProductModalsComponent } from '../manage-product-modals/manage-product-modals.component';
 
 @Component({
   selector: 'app-products',
@@ -23,6 +24,7 @@ export default class ProductsComponent extends BaseClass implements OnInit, OnDe
   $store!: Subscription;
   products: IProduct[] = [];
   totalRecords: number = 0;
+  productForm = ManageProductModalsComponent;
 
   ngOnInit(): void {
     this.$store = this.store.select('filters').subscribe({

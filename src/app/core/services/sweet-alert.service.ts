@@ -6,7 +6,7 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
 })
 export class SweetAlertService {
 
-  error(text: string, typeMessage: SweetAlertIcon) {
+  message(text: string, typeMessage: SweetAlertIcon) {
     Swal.fire({
       icon: typeMessage,
       text,
