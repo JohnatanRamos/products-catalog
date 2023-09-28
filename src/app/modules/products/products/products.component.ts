@@ -6,7 +6,7 @@ import { IGetProducts } from '../interfaces/IGetProducts';
 import { PaginatorComponent } from 'src/app/shared/components/paginator/paginator.component';
 import { BaseClass } from 'src/app/core/base.class';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
-import { IFilters } from 'src/app/store/reducers/filters.reducer';
+import { IFilters } from 'src/app/shared/interfaces/IFilters.interface';
 
 @Component({
   selector: 'app-products',

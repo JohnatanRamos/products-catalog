@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs';
 
 import { MaterialModule } from '../../modules/material.module';
 import { BaseClass } from 'src/app/core/base.class';
-import { IFilters } from 'src/app/store/reducers/filters.reducer';
 import * as actions from '../../../store/actions/filters.actions';
+import { IFilters } from '../../interfaces/IFilters.interface';
 
 @Component({
   selector: 'app-paginator',
