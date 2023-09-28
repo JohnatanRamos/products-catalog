@@ -37,8 +37,7 @@ export class PriceFilterComponent extends BaseClass {
     const maxValue = this.maxValue.value;
 
     if (!minValue) {
-    console.log('error');
-      // Mostrar error.
+      this.messageService.error('Debe agregar un valor minimo', 'error');
       return;
     }
 
@@ -51,8 +50,6 @@ export class PriceFilterComponent extends BaseClass {
       this.filterByPrice();
       return;
     }
-    console.log('error');
-    
-    // Mostrar error.
+    this.messageService.error('El valor maximo debe de ser mayor', 'error');
   }
 }
