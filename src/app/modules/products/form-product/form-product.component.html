@@ -1,0 +1,64 @@
+<div class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="modal bg-white w-fulls w-auto rounded-lg shadow-lg">
+
+        <app-header-modal [title]="!data ? 'Agregar Producto' : 'Editar Producto'"></app-header-modal>
+
+        <form [formGroup]="productoForm" class="p-4">
+
+            <div class="flex gap-3 justify-between items-center">
+                <div class="w-full">
+                    <div class="flex justify-between gap-2">
+                        <mat-form-field class="w-full">
+                            <input matInput placeholder="Nombre" formControlName="nombre">
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full">
+                            <input matInput placeholder="SKU" formControlName="sku">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex justify-between gap-2">
+                        <mat-form-field class="w-full">
+                            <input matInput placeholder="Precio" formControlName="precio">
+                        </mat-form-field>
+
+                        <mat-form-field class="w-full">
+                            <input matInput placeholder="Stock" formControlName="stock">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <img alt="Nombre del Producto" class="h-44 w-auto mb-5"
+                    *ngIf="productoForm.get('imagen')?.value && productoForm.get('imagen')?.valid"
+                    [src]="productoForm.get('imagen')?.value" alt="image">
+            </div>
+
+            <mat-form-field class="w-full">
+                <textarea matInput placeholder="Descripción" formControlName="descripcion"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+                <input matInput placeholder="Imagen URL" formControlName="imagen">
+            </mat-form-field>
+
+            <mat-form-field class="w-full example-form-field">
+                <mat-label>Video keywords</mat-label>
+                <mat-chip-grid #chipGrid aria-label="Enter keywords" formControlName="etiquetas">
+                    <mat-chip-row *ngFor="let keyword of keywords" (removed)="removeKeyword(keyword)">
+                        {{keyword}}
+                        <button matChipRemove aria-label="'remove ' + keyword">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip-row>
+                </mat-chip-grid>
+                <input placeholder="New keyword..." [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="add($event)" />
+            </mat-form-field>
+
+            <div class="mt-4 flex justify-end gap-2">
+                <button mat-button color="warn" *ngIf="data" (click)="handleDeleteProduct()">Eliminar</button>
+                <button mat-raised-button color="primary" (click)="handleSaveProduct()"
+                    [disabled]="productoForm.invalid">Guardar</button>
+                <button mat-button color="warn" (click)="handleCloseModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
