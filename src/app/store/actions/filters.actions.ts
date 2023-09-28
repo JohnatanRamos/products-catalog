@@ -4,3 +4,4 @@ import { IFilters, keysFilter } from "src/app/shared/interfaces/IFilters.interfa
 export const setFilters = createAction('add filters', props<IFilters>());
 export const removeFilter = createAction('remove filter', props<{ field: keysFilter }>());
 export const removePriceFilter = createAction('remove price filter');
+export const refreshList = createAction('update list');

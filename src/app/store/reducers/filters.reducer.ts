@@ -26,6 +26,10 @@ const _filtersReducer = createReducer(
     let newOptions = { ...state };
     const { maxValue, minValue, ...newObject } = newOptions;
     return { ...newObject, page: 0 };
+  }),
+
+  on(actions.refreshList, (state) => {
+    return {...state};
   })
   
 );
