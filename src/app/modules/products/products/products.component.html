@@ -1,0 +1,19 @@
+<div class="flex flex-col">
+
+    <div class="grid grid-cols-3 gap-3">
+        <ng-container *ngFor="let item of products">
+            <div class="max-w-xs rounded-md overflow-hidden shadow-xl">
+                <img src="https://imgs.search.brave.com/A-wLJyX2uG3SRtR2CTSQLzrVbq7AjV3BLFsRpY7i4-s/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlZWpwZy5j/b20uYXIvNDAwLzEy/MDkvM2QtcHJpbnQt/c2t1bGwtRjEwMDAz/MTc2OS5qcGc"
+                    alt="Nombre del Producto" class="w-full">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">{{ item.nombre }}</div>
+                    <p class="text-gray-700 text-base mb-2"> {{ item.sku }} </p>
+                    <p class="text-gray-700 text-base"> {{ item.precio }} </p>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <app-paginator [totalRecords]="totalRecords"></app-paginator>
+
+</div>
