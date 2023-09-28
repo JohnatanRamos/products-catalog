@@ -1,0 +1,4 @@
+<div class="flex justify-center m-8">
+    <mat-paginator #paginator [pageIndex]="page" (page)="changePage($event)" [length]="totalRecords" [pageSizeOptions]="[4, 8, 12]"
+    showFirstLastButtons></mat-paginator>
+</div>
