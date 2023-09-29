@@ -1,15 +1,15 @@
 <ng-container *ngIf="viewProductForm">
     <app-form-product 
     [data]="data"
-    (onCloseModal)="cerrarModal()" 
-    (onDeleteProduct)="eliminar()"
+    (onCloseModal)="closeModal()" 
+    (onDeleteProduct)="deleteProduct()"
     (onSaveProduct)="validateAction($event)"></app-form-product>
 </ng-container>
 
 <ng-container *ngIf="!viewProductForm">
     <app-view-product 
     [data]="data" 
-    (onCloseModal)="cerrarModal()" 
-    (onDeleteProduct)="eliminar()"
+    (onCloseModal)="closeModal()" 
+    (onDeleteProduct)="deleteProduct()"
     (onChangeView)="viewProductForm = true"></app-view-product>
 <ng-container>

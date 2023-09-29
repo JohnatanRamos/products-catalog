@@ -29,23 +29,23 @@ export class ManageProductModalsComponent extends BaseClass implements OnInit {
     }
   }
 
-  cerrarModal(): void {
+  closeModal() {
     this.dialogRef.close();
   }
 
   validateAction(body: IProduct) {
     if (this.data) {
-      this.editarProducto(body);
+      this.updateProduct(body);
       return;
     }
-    this.guardarProducto(body);
+    this.createProduct(body);
   }
 
-  guardarProducto(body: IProduct) {
+  createProduct(body: IProduct) {
     this.baseService.postMethod(`products`, body).subscribe({
       next: () => {
         this.messageService.message('Producto creado.', 'success');
-        this.cerrarModal();
+        this.closeModal();
         this.store.dispatch(refreshList());
       },
       error: (error: HttpErrorResponse) => {
@@ -54,11 +54,11 @@ export class ManageProductModalsComponent extends BaseClass implements OnInit {
     });
   }
 
-  editarProducto(body: IProduct) {
+  updateProduct(body: IProduct) {
     this.baseService.patchMethod(`products/${this.data._id}`, body).subscribe({
       next: () => {
         this.messageService.message('Producto actualizado correctamente.', 'success');
-        this.cerrarModal();
+        this.closeModal();
         this.store.dispatch(refreshList());
       },
       error: (error: HttpErrorResponse) => {
@@ -67,11 +67,11 @@ export class ManageProductModalsComponent extends BaseClass implements OnInit {
     });
   }
 
-  eliminar() {
+  deleteProduct() {
     this.baseService.deleteMethod(`products/${this.data._id}`).subscribe({
       next: () => {
         this.messageService.message('Producto eliminado correctamente.', 'success');
-        this.cerrarModal();
+        this.closeModal();
         this.store.dispatch(refreshList());
       }
     });

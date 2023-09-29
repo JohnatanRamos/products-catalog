@@ -8,6 +8,6 @@ import { ManageProductModalsComponent } from './modules/products/manage-product-
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent extends BaseClass {
-  title = 'products-catalog';
+  title = 'Productos';
   productForm = ManageProductModalsComponent;
 }

@@ -3,7 +3,7 @@
 
         <app-header-modal [title]="!data ? 'Agregar Producto' : 'Editar Producto'"></app-header-modal>
 
-        <form [formGroup]="productoForm" class="p-4">
+        <form [formGroup]="productForm" class="p-4">
 
             <div class="flex gap-3 justify-between items-center">
                 <div class="w-full">
@@ -28,8 +28,8 @@
                     </div>
                 </div>
                 <img alt="Nombre del Producto" class="h-44 w-auto mb-5"
-                    *ngIf="productoForm.get('imagen')?.value && productoForm.get('imagen')?.valid"
-                    [src]="productoForm.get('imagen')?.value" alt="image">
+                    *ngIf="productForm.get('imagen')?.value && productForm.get('imagen')?.valid"
+                    [src]="productForm.get('imagen')?.value" alt="image">
             </div>
 
             <mat-form-field class="w-full">
@@ -59,7 +59,7 @@
                 </button>
 
                 <button mat-raised-button color="primary" (click)="handleSaveProduct()"
-                    [disabled]="productoForm.invalid">Guardar</button>
+                    [disabled]="productForm.invalid">Guardar</button>
 
                 <button mat-stroked-button color="primary" (click)="handleCloseModal()">Cancelar</button>
             </div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [{
   path: '',
+  title: 'Productos',
   loadComponent: () => import('./modules/products/products/products.component') 
 }];
 

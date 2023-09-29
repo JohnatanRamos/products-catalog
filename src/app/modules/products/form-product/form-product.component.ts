@@ -27,13 +27,13 @@ export class FormProductComponent extends BaseClass implements OnInit {
   @Output() onCloseModal = new EventEmitter();
   @Output() onSaveProduct = new EventEmitter();
   
-  productoForm!: FormGroup;
+  productForm!: FormGroup;
   keywords: string[] = [];
   urlRegex =
     /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;  
 
   ngOnInit(): void {
-    this.productoForm = this.fb.group({
+    this.productForm = this.fb.group({
       nombre: ['', Validators.required],
       descripcion: [''],
       sku: ['', Validators.required],
@@ -44,7 +44,7 @@ export class FormProductComponent extends BaseClass implements OnInit {
     });
 
     if (this.data) {
-      this.productoForm.patchValue(this.data);
+      this.productForm.patchValue(this.data);
       this.keywords = this.data.etiquetas;
     }
   }
@@ -74,6 +74,6 @@ export class FormProductComponent extends BaseClass implements OnInit {
   }
 
   handleSaveProduct() {
-    this.onSaveProduct.emit(this.productoForm.getRawValue());
+    this.onSaveProduct.emit(this.productForm.getRawValue());
   }
 }
