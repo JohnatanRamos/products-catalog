@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const modules = [
   MatPaginatorModule,
@@ -17,7 +18,8 @@ const modules = [
   MatDialogModule,
   MatIconModule,
   MatChipsModule,
-  MatListModule
+  MatListModule,
+  MatExpansionModule
 ];
 
 @NgModule({

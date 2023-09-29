@@ -1,3 +1,6 @@
+import { IPriceHistory } from "./IPriceHistory";
+import { IStockHistory } from "./IStockHistory";
+
 export interface IProduct {
   _id?: string;
   nombre: string;
@@ -7,4 +10,6 @@ export interface IProduct {
   etiquetas: string[];
   precio: number;
   stock: number;
+  historialPrecio: IPriceHistory[];
+  historialStock: IStockHistory[];
 }

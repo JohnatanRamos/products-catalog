@@ -6,29 +6,87 @@
         <div class="flex px-4 pt-4">
             <div class="w-1/2 max-w-sm pr-4">
                 <img [src]="data.imagen"
-                    alt="Nombre del Producto" class="w-full">
+                    alt="Nombre del Producto" class="w-full max-h-52 object-contain object-center">
             </div>
-            <div class="w-1/2 pl-4">
-                <h3 class="text-xl font-semibold mb-2">{{ data.nombre }}</h3>
-                <p class="text-gray-600 text-sm mb-2">
-                    <span class="text-black font-light">SKU:</span>
-                    {{ data.sku }}
-                </p>
-                <div class="text-gray-600 text-sm mb-2">
-                    <span class="text-black font-light">Etiquetas:</span>
-                    {{etiquetas}}
+            <div class="flex w-3/5 pl-4">
+                <div class="w-1/2">
+                    <h3 class="text-xl font-semibold mb-2">{{ data.nombre }}</h3>
+                    <p class="text-gray-600 text-sm mb-2">
+                        <span class="text-black font-light">SKU:</span>
+                        {{ data.sku }}
+                    </p>
+                    <div class="text-gray-600 text-sm mb-2">
+                        <span class="text-black font-light">Etiquetas:</span>
+                        {{etiquetas}}
+                    </div>
+                    <p class="text-gray-600 text-sm mb-2">
+                        <span class="text-black font-light">Precio:</span>
+                        {{ data.precio | currency:'COP':"symbol":"1.0-0"}}
+                    </p>
+                    <p class="text-gray-600 text-sm">
+                        <span class="text-black font-light"> Stock: </span>
+                        {{ data.stock }} unidades
+                    </p>
+                    <p class="text-gray-700 text-sm mb-4">
+                        {{ data.descripcion }}
+                    </p>
                 </div>
-                <p class="text-gray-600 text-sm mb-2">
-                    <span class="text-black font-light">Precio:</span>
-                    {{ data.precio | currency:'COP':"symbol":"1.0-0"}}
-                </p>
-                <p class="text-gray-600 text-sm">
-                    <span class="text-black font-light"> Stock: </span>
-                    {{ data.stock }} unidades
-                </p>
-                <p class="text-gray-700 text-sm mb-4">
-                    {{ data.descripcion }}
-                </p>
+
+                <div class="w-1/2">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Historial Precio
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                
+                            <div class="bg-white shadow-md rounded-lg overflow-auto max-h-28">
+                                <table class="w-full table-fixed">
+                                    <thead>
+                                        <tr class="bg-gray-200">
+                                            <th class="w-1/3 p-4 text-left font-bold">Antes</th>
+                                            <th class="w-1/3 p-4 text-left font-bold">Después</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-gray-100" *ngFor="let item of data.historialPrecio">
+                                            <td class="p-4">{{ item.precioAnterior | currency:'COP':"symbol":"1.0-0" }}</td>
+                                            <td class="p-4">{{ item.precioNuevo | currency:'COP':"symbol":"1.0-0" }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                
+                        </mat-expansion-panel>
+                
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Historial stock
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                
+                            <div class="bg-white shadow-md rounded-lg overflow-auto max-h-28">
+                                <table class="w-full table-fixed">
+                                    <thead>
+                                        <tr class="bg-gray-200">
+                                            <th class="w-1/3 p-4 text-left font-bold">Antes</th>
+                                            <th class="w-1/3 p-4 text-left font-bold">Después</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-gray-100" *ngFor="let item of data.historialStock">
+                                            <td class="p-4">{{ item.stockAnterior }}</td>
+                                            <td class="p-4">{{ item.stockNuevo }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
             </div>
         </div>
         <div class="mt-4 flex justify-end gap-3 p-4 pt-0">
