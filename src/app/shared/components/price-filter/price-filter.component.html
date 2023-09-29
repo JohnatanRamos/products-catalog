@@ -1,5 +1,5 @@
-<div class="flex flex-col gap-3 w-72">
-    <div class="flex gap-3 justify-center items-center">
+<div class="flex items-center flex-col w-72">
+    <div class="flex gap-3 justify-center items-center w-11/12">
         <mat-form-field class="example-margin example-width">
             <mat-label>Min value</mat-label>
             <input matInput type="number" [formControl]="minValue">
@@ -9,9 +9,9 @@
             <input matInput type="number" [formControl]="maxValue">
         </mat-form-field>
     </div>
-    <div>
-        <button mat-raised-button (click)="clearFilter()">Limpiar</button>
-        <button mat-raised-button (click)="validateValues()" color="primary"
+    <div class="flex gap-3 justify-center items-center w-11/12">
+        <button mat-raised-button (click)="clearFilter()" class="w-1/2">Limpiar</button>
+        <button mat-raised-button (click)="validateValues()" class="w-1/2" color="primary"
             [disabled]="!minValue.value">Filtar</button>
     </div>
 </div>

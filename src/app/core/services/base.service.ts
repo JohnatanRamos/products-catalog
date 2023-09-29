@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { IProduct } from 'src/app/modules/products/interfaces/IProduct';
 import { IGetProducts } from 'src/app/modules/products/interfaces/IGetProducts';
 

@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 
@@ -22,7 +21,6 @@ import { HeaderModalComponent } from 'src/app/shared/components/header-modal/hea
   styleUrls: ['./form-product.component.scss'],
 })
 export class FormProductComponent extends BaseClass implements OnInit {
-  announcer = inject(LiveAnnouncer);
   
   @Input() data!: IProduct;
   @Output() onDeleteProduct = new EventEmitter();
@@ -39,7 +37,7 @@ export class FormProductComponent extends BaseClass implements OnInit {
       nombre: ['', Validators.required],
       descripcion: [''],
       sku: ['', Validators.required],
-      imagen: ['', [Validators.pattern(this.urlRegex)]],
+      imagen: ['', [Validators.required, Validators.pattern(this.urlRegex)]],
       etiquetas: [],
       precio: ['', Validators.required],
       stock: ['', Validators.required],
@@ -47,6 +45,7 @@ export class FormProductComponent extends BaseClass implements OnInit {
 
     if (this.data) {
       this.productoForm.patchValue(this.data);
+      this.keywords = this.data.etiquetas;
     }
   }
 
@@ -54,8 +53,6 @@ export class FormProductComponent extends BaseClass implements OnInit {
     const index = this.keywords.indexOf(keyword);
     if (index >= 0) {
       this.keywords.splice(index, 1);
-
-      this.announcer.announce(`removed ${keyword}`);
     }
   }
 

@@ -54,10 +54,14 @@
             </mat-form-field>
 
             <div class="mt-4 flex justify-end gap-2">
-                <button mat-button color="warn" *ngIf="data" (click)="handleDeleteProduct()">Eliminar</button>
+                <button mat-stroked-button color="warn" *ngIf="data" (click)="handleDeleteProduct()">
+                    Eliminar
+                </button>
+
                 <button mat-raised-button color="primary" (click)="handleSaveProduct()"
                     [disabled]="productoForm.invalid">Guardar</button>
-                <button mat-button color="warn" (click)="handleCloseModal()">Cancelar</button>
+
+                <button mat-stroked-button color="primary" (click)="handleCloseModal()">Cancelar</button>
             </div>
         </form>
     </div>
