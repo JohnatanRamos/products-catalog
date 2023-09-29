@@ -20,7 +20,7 @@
                 </div>
                 <p class="text-gray-600 text-sm mb-2">
                     <span class="text-black font-light">Precio:</span>
-                    {{ data.precio | currency }}
+                    {{ data.precio | currency:'COP':"symbol":"1.0-0"}}
                 </p>
                 <p class="text-gray-600 text-sm">
                     <span class="text-black font-light"> Stock: </span>
@@ -32,9 +32,9 @@
             </div>
         </div>
         <div class="mt-4 flex justify-end gap-3 p-4 pt-0">
-            <button mat-button color="warn" *ngIf="data" (click)="handleDeleteProduct()">Eliminar</button>
+            <button mat-stroked-button color="warn" *ngIf="data" (click)="handleDeleteProduct()">Eliminar</button>
             <button mat-raised-button color="primary" *ngIf="data" (click)="handleChangeView()">Editar</button>
-            <button mat-button color="primary" (click)="handleCloseModal()">Cerrar</button>
+            <button mat-stroked-button color="primary" (click)="handleCloseModal()">Cerrar</button>
         </div>
     </div>
 </div>
