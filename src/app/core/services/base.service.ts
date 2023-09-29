@@ -7,7 +7,7 @@ import { IGetProducts } from 'src/app/modules/products/interfaces/IGetProducts';
   providedIn: 'root',
 })
 export class BaseService {
-  apiUrl = 'http://localhost:3000/';
+  apiUrl = 'https://products-catalog-api-production.up.railway.app/';
 
   http = inject(HttpClient);
 
