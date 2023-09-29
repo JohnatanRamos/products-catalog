@@ -29,7 +29,7 @@ const _filtersReducer = createReducer(
   }),
 
   on(actions.refreshList, (state) => {
-    return {...state};
+    return {...state, page: 0};
   })
   
 );
