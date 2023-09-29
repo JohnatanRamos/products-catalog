@@ -3,7 +3,7 @@
     <ng-container *ngIf="products.length !== 0">
         <div class="grid grid-cols-3 gap-3">
             <ng-container *ngFor="let item of products">
-                <div class="max-w-xs rounded-md overflow-hidden shadow-xl cursor-pointer" (click)="openModal(productForm, item)">
+                <div class="max-w-xs min-w-3 rounded-md overflow-hidden shadow-xl cursor-pointer" (click)="openModal(productForm, item)">
                     <img [src]="item.imagen"
                         alt="Nombre del Producto" class="w-full max-h-52 object-contain object-center">
                     <div class="px-6 py-4">
